@@ -1,0 +1,91 @@
+.App {
+  text-align: left;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.image {
+  height: 500px; /* Maintain the aspect ratio */
+  width: 250px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 90%);
+  position: absolute;
+  left: 20%;
+}
+
+.insta-logo {
+  position: absolute;
+  left: 85%;
+  top: 25%;
+}
+
+.linkedIn-logo {
+  position: absolute;
+  right: 25%;
+}
+
+.google-ads {
+  position: absolute;
+    right: 70%;
+    top: 40%;
+}
+
+.banner-chart {
+  position: absolute;
+  left: 45%;
+  top: 80%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.pageButton {
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+.selectedPage {
+  background-color: black;
+  color: aliceblue;
+}
+
+.faded {
+  opacity: 0.5; /* Adjust the opacity to control the fade effect */
+  pointer-events: none; /* Disable interaction with other elements */
+  transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+.undoFaded {
+  opacity: 1; /* Adjust the opacity to control the fade effect */
+  pointer-events: auto; /* Disable interaction with other elements */
+  transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
