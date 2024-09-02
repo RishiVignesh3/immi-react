@@ -4,7 +4,7 @@ import FiberSmartRecordIcon from '@mui/icons-material/FiberSmartRecord';
 import { FlexBox } from '../Components/FlexBox';
 import { Link } from 'react-router-dom';
 
-const pages = ['Campaign', 'Products', 'Pricing', 'Blog', 'MCQ', 'ECommerce'];
+const pages = ['Campaign', 'Tree', 'Windowing', 'Search', 'MCQ', 'ECommerce'];
 
 export const Navigation = () => {
   return (

@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "jest": {
-  "moduleNameMapper": {
-    "^axios$": "<rootDir>/src/__mocks__/axios.js"
-  }
-},
+    "moduleNameMapper": {
+      "^axios$": "<rootDir>/src/__mocks__/axios.js"
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -26,6 +26,7 @@
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.25.1",
     "react-scripts": "5.0.1",
+    "react-window": "^1.8.10",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

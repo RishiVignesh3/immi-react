@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 export default function Com() {
   const [data, setData] = useState([]);
   const [inputVal, setInputVal] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   const [pagedData, setPagedData] = useState([]);
   const [previousSearch, setPreviousSearch] = useState([]);
   const [selected, setSelected] = useState(1);
@@ -11,9 +12,10 @@ export default function Com() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const curSearch = searchParams.get('q');
-  console.log(pagedData)
+  console.log(pagedData);
 
   const fetchData = (url) => {
+    setIsLoading(true);
     fetch(url)
       .then((res) => {
         return res.json();
@@ -28,6 +30,10 @@ export default function Com() {
             setPreviousSearch([...previousSearch, inputVal.trim()]);
           }
         }
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsLoading(false);
       });
   };
 
@@ -37,7 +43,7 @@ export default function Com() {
       setInputVal(curSearch);
       fetchData(`https://dummyjson.com/users/search?q=${curSearch}&limit=100`);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -47,7 +53,7 @@ export default function Com() {
     }, 1000);
 
     return () => clearTimeout(timer);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputVal]);
 
   const handleChange = (e) => {
@@ -64,6 +70,14 @@ export default function Com() {
   };
 
   const numberElement = () => {
+    if (isLoading) {
+      return <h1>Wait until its loaded</h1>;
+    }
+
+    if (data.length <= 0) {
+      return <h1>No Content</h1>;
+    }
+
     let num = [];
     for (let i = 0; i < totPage; i++) {
       num.push(
@@ -80,7 +94,7 @@ export default function Com() {
   };
 
   return (
-    <div className="App">
+    <div className="searchApp">
       {previousSearch.map((item) => (
         <p onClick={() => selectPrevHandler(item)}>{item}</p>
       ))}
@@ -88,7 +102,7 @@ export default function Com() {
       {pagedData.map((item, i) => (
         <p key={i}>{item.firstName} </p>
       ))}
-      {numberElement()}
+      <div> {numberElement()} </div>
     </div>
   );
 }

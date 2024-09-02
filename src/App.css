@@ -1,5 +1,5 @@
 .App {
-  text-align: left;
+  text-align: center;
 }
 
 .App-logo {
@@ -79,6 +79,14 @@
   opacity: 1; /* Adjust the opacity to control the fade effect */
   pointer-events: auto; /* Disable interaction with other elements */
   transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+.searchApp {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes App-logo-spin {
